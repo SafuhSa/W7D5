@@ -4,10 +4,11 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_param)
     if @user.save
       login(@user)
+      # render json: "you've logged in!!"
+      render "api/users/show"
     else
-      flash[:errors] = @user.errors.full_messages
+      render json: @user.errors.full_messages, status: 422
     end
-
   end
 
   private

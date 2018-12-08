@@ -22,7 +22,7 @@ class User < ApplicationRecord
     self.session_token
   end
 
-  def ensure_sesion_token
+  def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64
   end
 
@@ -34,5 +34,6 @@ class User < ApplicationRecord
     else
       nil
     end
+  end
 
 end
